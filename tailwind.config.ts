@@ -7,8 +7,11 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 
-      "./node_modules/@nextui-org/theme/dist/components/button.js",
-      "./node_modules/@nextui-org/theme/dist/components/input.js",
+    "./node_modules/@nextui-org/theme/dist/components/button.js",
+    "./node_modules/@nextui-org/theme/dist/components/input.js",
+    "./node_modules/@nextui-org/theme/dist/components/progress.js",
+    "./node_modules/@nextui-org/theme/dist/components/select.js",
+    "./node_modules/@nextui-org/theme/dist/components/checkbox.js",
   ],
   theme: {
     extend: {

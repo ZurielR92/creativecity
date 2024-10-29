@@ -8,9 +8,11 @@ const productSchema = new Schema<ProductInterface>({
     defaultOption: { type: Number, default: 0
     },
     likes: { type: Number, default: 0 },
-    slug: { type: String, required: true },
+    printInventory: { type:Number, default:0},
+    productInventory: { type: Number, default: 0},
     shared: { type: Number, default: 0 },
     options: [ {
+            title: { type: String, Required: true },
             type: { type: String, Required: true },
             imageUrl: { type: String, required: true },
         } ],

@@ -14,6 +14,7 @@ export const POST = async( req: NextRequest ) => {
 
 
     console.log(body);
+    
     try {
         await connect();
 
