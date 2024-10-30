@@ -1,6 +1,6 @@
 'use client'
-import {Input} from "@nextui-org/input";
 import {Chip} from "@nextui-org/chip";
+import {Input} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 import {Checkbox} from "@nextui-org/checkbox";
 
@@ -14,6 +14,8 @@ import { storage } from "@/utils/firebase";
 import { slugify } from "@/utils/urlUtils";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { ProductInterface, ProductOptionInterface } from "@/types";
+import { useRouter } from "next/navigation";
+
 
 const page = () => {
 
@@ -32,6 +34,8 @@ const page = () => {
   const [ optionType, setOptiontype ] = useState('');
   const [defaultOption, setDefaultOption] = useState(0);
   const [ options, setOptions ] = useState<{file:Blob,label:string,type:string}[]>([]);
+
+  const router = useRouter();
 
 
   useEffect(()=>{
@@ -117,6 +121,9 @@ const page = () => {
     if(options.length <= 0) return;
     if(tags.length <= 0 ) return;
     if(!title) return;
+
+    console.log(options)
+
     setLoading(true)
     const productOptions = options.map(async(op,i)=>{
       const fileRef = ref(storage,`products/${slugify(title)}-${slugify(op.label)}`);
@@ -147,12 +154,8 @@ const page = () => {
       body: JSON.stringify(toSaveProduct),
     });
 
-    setTitle('')
-    setTags([]);
-    setSelectedImage(undefined)
-    setLastTitle('');
-    setOptions([]);
-    setLoading(false);
+    alert('correct')
+    router.replace('/');
 
 
   }
@@ -233,6 +236,7 @@ const page = () => {
               className="object-cover"
               alt=""
               fill
+              priority
             />
           </Button>
 

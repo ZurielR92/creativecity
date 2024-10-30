@@ -12,6 +12,7 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/components/progress.js",
     "./node_modules/@nextui-org/theme/dist/components/select.js",
     "./node_modules/@nextui-org/theme/dist/components/checkbox.js",
+    "./node_modules/@nextui-org/theme/dist/components/pagination.js",
   ],
   theme: {
     extend: {

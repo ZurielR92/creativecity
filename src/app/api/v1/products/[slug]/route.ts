@@ -20,3 +20,26 @@ export async function GET (req: NextRequest,{params}:{params:{slug:string}}) {
     }
 
 }
+
+
+export async function DELETE (req: NextRequest,{params}:{params:Promise<{slug:string}>}) {
+
+
+    const slug = (await params).slug;
+    console.log(slug)
+
+    try {
+
+        await connect();
+
+        const deleted = await ProductModel.deleteOne({_id:slug});
+
+        await disconnect();
+
+        return NextResponse.json(deleted)
+
+    } catch (error) {
+        return NextResponse.json(error,{status:400})
+        
+    }
+}
